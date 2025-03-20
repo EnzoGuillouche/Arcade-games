@@ -1,17 +1,18 @@
 section .data
     ps_game_file db 'Games/Pac-ssembly/Bin/PS.com', 0
     sf_game_file db 'Games/Street-Fighssembly/Bin/SF.com', 0
+    
+    program_to_execute dw 0
     program_to_execute_bytes db 35
 
     file_name db 'file.txt', 0
 
+    current_game dw 0
+    current_game_x_pos db 0
+    current_game_y_pos db 0
+
 section .bss
     file_handle dw ?
-    program_to_execute resw 1
-
-    current_game resw 1
-    current_game_x_pos resb 1
-    current_game_y_pos resb 1
 
 section .text
     change_current_game:

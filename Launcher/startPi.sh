@@ -26,13 +26,13 @@ while true; do
     fi
 
     # Extract game directory and filename correctly
-    GAME_DIR=$(dirname "$GAME_PATH")
-    GAME_FILE=$(basename "$GAME_PATH")
+    GAME_TO_EXECUTE_DIR=$(dirname "$GAME_TO_EXECUTE_PATH")
+    GAME_TO_EXECUTE_FILE=$(basename "$GAME_TO_EXECUTE_PATH")
 
     clear
 
     # Execute in DOSBox
-    "$DOSBOX_BIN" -c "MOUNT c $ROOT_DIR/$GAME_DIR" -c "c:" -c "$GAME_FILE" -c "exit"
+    "$DOSBOX_BIN" -c "MOUNT c $ROOT_DIR/$GAME_TO_EXECUTE_DIR" -c "c:" -c "$GAME_TO_EXECUTE_FILE" -c "exit"
     
     clear
 

@@ -17,17 +17,17 @@ FILE_PATH="$GAME_BIN/file.txt"
 
 # Read the file
 if [ -f "$FILE_PATH" ]; then
-    GAME_PATH=$(head -n 1 "$FILE_PATH" | sed 's/[[:space:]]*$//')
+    GAME_TO_EXECUTE_PATH=$(head -n 1 "$FILE_PATH" | sed 's/[[:space:]]*$//')
 else
     echo "Error: File not found: $FILE_PATH"
     exit 1
 fi
 
 # Extract game directory and filename correctly
-GAME_DIR=$(dirname "$GAME_PATH")
-GAME_FILE=$(basename "$GAME_PATH")
+GAME_TO_EXECUTE_DIR=$(dirname "$GAME_TO_EXECUTE_PATH")
+GAME_TO_EXECUTE_FILE=$(basename "$GAME_TO_EXECUTE_PATH")
 
 clear
 
 # Execute in DOSBox
-"$DOSBOX_BIN" -c "MOUNT c $ROOT_DIR/$GAME_DIR" -c "c:" -c "$GAME_FILE" -c "exit"
+"$DOSBOX_BIN" -c "MOUNT c $ROOT_DIR/$GAME_TO_EXECUTE_DIR" -c "c:" -c "$GAME_TO_EXECUTE_FILE" -c "exit"
