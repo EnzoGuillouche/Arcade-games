@@ -40,6 +40,11 @@ section .text
         jmp execute_game
 
     execute_game:
+        call modifyFile
+
+        jmp exitProgram
+
+    modifyFile:
         ; Open (or create) the file
         mov ah, 3Ch
         mov cx, 0
@@ -59,8 +64,7 @@ section .text
         mov bx, [file_handle]
         mov ah, 3Eh ; Close file
         int 21h
-
-        jmp exitProgram
+        ret
 
     ; -----------------------------------------------
     exitProgram:

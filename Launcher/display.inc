@@ -151,11 +151,13 @@ section .text
         call checkForKeyPress
 
     ps_game_setup:
+        call playSound
         mov si, ps_game
         mov al, [ps_game_x_pos]
         mov bl, [ps_game_y_pos]
         jmp set_current_game
     sf_game_setup:
+        call playSound
         mov si, sf_game
         mov al, [sf_game_x_pos]
         mov bl, [sf_game_y_pos]
@@ -168,3 +170,4 @@ section .text
         jmp mainMenu
 
 %include "input.inc"
+%include "audio.inc"
