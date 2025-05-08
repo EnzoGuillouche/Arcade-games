@@ -14,5 +14,6 @@ section .data
     pacman_y_speed_buffer dw 0
 
     col_test_nb db 1
+    col_test_nb_buffer db 1
 
     pacman_animation_frame db 0
